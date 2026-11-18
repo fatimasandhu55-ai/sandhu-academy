@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/static/style.css">
+<div class="box">
+{% if login %}
+<h2>Admin Login - Sirf Aap</h2>
+<form method="post"><input type="password" name="password" placeholder="Password: admin123"><button>Login</button></form>
+{% else %}
+<h2>Admin Portal - Sandhu Academy</h2>
+<h3>Naya Bacha Add Karein</h3>
+<form action="/add" method="post">
+<input name="name" placeholder="Naam" required>
+<input name="phone" placeholder="Phone" required>
+<input name="course" placeholder="Course" required>
+<input name="fee" placeholder="Fee Paid / Unpaid" required>
+<button>Add Student</button></form>
+<hr>
+<h3>Trials</h3>
+{% for t in trials %}<p>{{t['name']}} - {{t['phone']}} - {{t['course']}} - {{t['date']}}</p>{% endfor %}
+<hr>
+<h3>Students Record</h3>
+{% for s in students %}
+<p><b>{{s['name']}}</b> | {{s['course']}} | Fee: {{s['fee']}} | Attendance: {{s['attendance']}} | Performance: {{s['performance']}} | {{s['date']}}
+<br><a href="/student/{{s['id']}}">Dashboard Dekhein</a> | <a href="/delete/{{s['id']}}">Delete</a>
+<form action="/update/{{s['id']}}" method="post">
+<input name="attendance" placeholder="Attendance %">
+<input name="performance" placeholder="Performance">
+<button>Update</button></form></p>
+{% endfor %}
+{% endif %}
+</div>
