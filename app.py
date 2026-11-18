@@ -7,7 +7,8 @@ app.secret_key = "sandhu123"
 ADMIN_PASS = "admin123"
 
 def db():
-    con = sqlite3.connect("academy.db")
+    con = sqlite3.connect("/tmp/academy.db")
+
     con.row_factory = sqlite3.Row
     return con
 
