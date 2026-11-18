@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/static/style.css">
+<div class="box">
+<h2>Student Dashboard</h2>
+{% if s %}
+<p><b>Naam:</b> {{s['name']}}</p>
+<p><b>Course:</b> {{s['course']}}</p>
+<p><b>Fee:</b> {{s['fee']}}</p>
+<p><b>Attendance:</b> {{s['attendance']}}</p>
+<p><b>Performance:</b> {{s['performance']}}</p>
+<p><b>Date:</b> {{s['date']}}</p>
+{% else %}<p>Student nahi mila</p>{% endif %}
+<a href="/">Wapis Home</a>
+</div>
